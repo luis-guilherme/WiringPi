@@ -69,9 +69,16 @@ OBJ	=	$(SRC:.c=.o)
 
 all:		$(DYNAMIC)
 
-.PHONY:	static
-static:	
-		$Q cat noMoreStatic
+#.PHONY:	static
+#static:	
+#		$Q cat noMoreStatic
+static:		$(STATIC)
+
+$(STATIC):	$(OBJ)
+	$Q echo "[Link (Static)]"
+	$Q ar rcs $(STATIC) $(OBJ)
+	$Q ranlib $(STATIC)
+#	@size   $(STATIC)
 
 $(DYNAMIC):	$(OBJ)
 	$Q echo "[Link (Dynamic)]"
