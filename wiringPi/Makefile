@@ -109,6 +109,7 @@ install:	$(DYNAMIC)
 	$Q install -m 0755 -d						$(DESTDIR)$(PREFIX)/lib
 	$Q install -m 0755 libwiringPi.so.$(VERSION)			$(DESTDIR)$(PREFIX)/lib/libwiringPi.so.$(VERSION)
 	$Q ln -sf $(DESTDIR)$(PREFIX)/lib/libwiringPi.so.$(VERSION)	$(DESTDIR)/lib/libwiringPi.so
+	$Q install -m 0644 libwiringPi.a				$(DESTDIR)/lib/libwiringPi.a
 	$Q $(LDCONFIG)
 
 .PHONY: check-deb-destdir
